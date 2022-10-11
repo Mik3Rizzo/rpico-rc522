@@ -25,7 +25,7 @@ To install CircuitPython on the Pico:
 - Drag and drop the downloaded file directly into the Pico, that is seen as a USB storage.
 
 
-To use the library, simply copy `rc522.py` and `rc522manager.py` in the Raspberry Pico microcontroller (started normally,
+To use the library, simply copy `rc522.py` and `rc522manager.py` (eventually also `utils.py`) in the Raspberry Pico microcontroller (started normally,
 not pushing BOOTSEL).
 
 
