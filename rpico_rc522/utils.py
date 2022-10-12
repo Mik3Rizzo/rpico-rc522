@@ -1,3 +1,6 @@
+import binascii
+
+
 def get_block_number(sector_num: int, relative_block_num: int) -> int:
     """
     Returns the block number starting from the relative block number and the sector number.
@@ -17,12 +20,14 @@ def get_block_repr(block_number: int) -> str:
     return f"S{(block_number - (block_number % 4)) // 4}B{block_number % 4}"
 
 
-def bytes_to_hex(bytes_to_convert: bytes) -> str:
+def bytes_to_hex(bytes_to_convert: bytes, separator="") -> str:
     """
     Converts bytes to hex string
     :param bytes_to_convert: bytes to convert
+    :param separator: separator between hex values
     :return: hex string
     """
-    hex_str = hex(int.from_bytes(bytes_to_convert, "big"))
-    hex_str = hex_str.replace("0x", "")
-    return hex_str
+    if separator != "":
+        return binascii.hexlify(bytes_to_convert, separator).decode("utf-8")
+    else:
+        return binascii.hexlify(bytes_to_convert).decode("utf-8")
