@@ -1,6 +1,6 @@
 import board
-from rc522 import RC522
-from utils import get_block_number, get_block_repr
+from .rc522 import RC522
+from .utils import get_block_number, get_block_repr
 
 
 class RC522Manager:

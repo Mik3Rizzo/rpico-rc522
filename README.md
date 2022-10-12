@@ -1,9 +1,9 @@
 # Library rpico-rc522
 
-[rpico-rc522](https://github.com/Mik3Rizzo/rpico-rc522) is a **CircuitPython** library written to use the RC522 reader (chip MFRC522) 
-on the Raspberry Pico microcontroller.
+[rpico-rc522](https://github.com/Mik3Rizzo/rpico-rc522) is a **CircuitPython** library that manages  the RC522 reader 
+(chip MFRC522) on the Raspberry Pico microcontroller.
 
-The library is a porting of [rpi-rc522](https://github.com/Mik3Rizzo/rpi-rc522). Please see there for detailed 
+It is a porting of [rpi-rc522](https://github.com/Mik3Rizzo/rpi-rc522). Please see there for detailed 
 documentation and usage examples.
 
 ## Library structure
@@ -15,24 +15,22 @@ The library offers two handy objects:
 There is also a collection of utils functions.
 
 
-## Requisites and install
+## Requirements and install
 
-The library is written for CircuitPython.
+The library is works with CircuitPython.
 
 To install CircuitPython on the Pico:
 - Download it [here](https://circuitpython.org/board/raspberry_pi_pico/)
 - Push the BOOTSEL button on the Pico while connecting the usb to the computer. 
 - Drag and drop the downloaded file directly into the Pico, that is seen as a USB storage.
 
-
-To use the library, simply copy `rc522.py` and `rc522manager.py` (eventually also `utils.py`) in the Raspberry Pico microcontroller (started normally,
-not pushing BOOTSEL).
+To install the library, simply copy the `rpico_rc522` folder in the `lib` directory of the Pico.
 
 
 
-## Pinout
+## Wiring
 
-Default pinout for the connection between the Pico and the rc522.
+Default wiring between the Pico and the rc522.
 
 | Name  | Pin #  | Pin name |
 |:-----:|:------:|:--------:|
@@ -48,7 +46,7 @@ Default pinout for the connection between the Pico and the rc522.
 You can use [this](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg) 
 image for the Raspberry Pico pinout.
 
-The pinout configuration can be changed via software.
+The wiring configuration can be changed via software.
 
 
 ## About
