@@ -15,3 +15,14 @@ def get_block_repr(block_number: int) -> str:
     :return string representation
     """
     return f"S{(block_number - (block_number % 4)) // 4}B{block_number % 4}"
+
+
+def bytes_to_hex(bytes_to_convert: bytes) -> str:
+    """
+    Converts bytes to hex string
+    :param bytes_to_convert: bytes to convert
+    :return: hex string
+    """
+    hex_str = hex(int.from_bytes(bytes_to_convert, "big"))
+    hex_str = hex_str.replace("0x", "")
+    return hex_str

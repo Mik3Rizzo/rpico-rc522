@@ -1,6 +1,6 @@
 import board
 from .rc522 import RC522
-from .utils import get_block_number, get_block_repr
+from .utils import get_block_number, get_block_repr, bytes_to_hex
 
 
 class RC522Manager:
@@ -81,7 +81,7 @@ class RC522Manager:
         :return status: 0 = OK, 1 = NO_TAG_ERROR, 2 = ERROR
         """
         if self.debug:
-            print(f"[d] RC522Manager.select_tag(uid_data={bytes(uid_data).hex()}) ...")
+            print(f"[d] RC522Manager.select_tag(uid_data={bytes_to_hex(bytes(uid_data))}) ...")
 
         uid = uid_data[0:4]
         if self.uid != uid:
@@ -91,7 +91,7 @@ class RC522Manager:
         if status == self.STATUS_OK:
             self.uid = uid_data[0:4]
             if self.debug:
-                print(f"[d] RC522Manager: Selected UID {bytes(self.uid).hex()}")
+                print(f"[d] RC522Manager: Selected UID {bytes_to_hex(bytes(self.uid))}")
 
         return status
 
@@ -105,7 +105,7 @@ class RC522Manager:
         self.key = key
 
         if self.debug:
-            print(f"[d] RC522Manager.set_auth() >>> Set key {bytes(self.key).hex()}, method {'A' if auth_method == self.reader.ACT_AUTH_A else 'B'}")
+            print(f"[d] RC522Manager.set_auth() >>> Set key {bytes_to_hex(bytes(self.key))}, method {'A' if auth_method == self.reader.ACT_AUTH_A else 'B'}")
 
     def reset_auth(self):
         """
@@ -139,7 +139,7 @@ class RC522Manager:
 
         if (self.last_auth_data != auth_data) or force:
             if self.debug:
-                print(f"[d] RC522Manager: calling reader.auth() on UID {bytes(self.uid).hex()}")
+                print(f"[d] RC522Manager: calling reader.auth() on UID {bytes_to_hex(bytes(self.uid))}")
             self.last_auth_data = auth_data
             status = self.reader.auth(self.auth_method, block_number, self.key, self.uid)
         else:
@@ -209,7 +209,7 @@ class RC522Manager:
                 # Write the new block with changed bytes (block_data)
                 status = self.reader.write_block(block_number, block_data)
                 if self.debug:
-                    print(f"[d] Writing {bytes(block_data).hex()} to {get_block_repr(block_number)}")
+                    print(f"[d] Writing {bytes_to_hex(bytes(block_data))} to {get_block_repr(block_number)}")
 
         return status
 
